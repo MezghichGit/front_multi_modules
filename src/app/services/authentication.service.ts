@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   authenticate(username:any, password:any) {
-    if (username === "amine" && password === "1234") {
-      sessionStorage.setItem('username', username)//stockage du token
-      return true;
-    } else {
-      return false;
+    let user={
+      "email":username,
+      "password":password
     }
+     return this.http.post("http://127.0.0.1:83/token/sign",user);
   }
 
   isUserLoggedIn() {
