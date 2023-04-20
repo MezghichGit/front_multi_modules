@@ -17,13 +17,14 @@ export class AuthenticationService {
   }
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem('username')
+    let user = sessionStorage.getItem('token')
     console.log(!(user === null))
     return !(user === null)
   }
 
   logOut() {
-    sessionStorage.removeItem('username')
+    sessionStorage.removeItem('token')
+    sessionStorage.removeItem("name");
   }
 
 }

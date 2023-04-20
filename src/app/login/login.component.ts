@@ -1,7 +1,7 @@
 import { Component , OnInit } from '@angular/core';
 import { Router, ActivatedRoute} from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
-
+import jwt_decode from "jwt-decode";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,6 +10,7 @@ import { AuthenticationService } from '../services/authentication.service';
 export class LoginComponent implements OnInit {
   username: any;
   password: any;
+  name:any
   invalidLogin = false;
 
   successMessage = "Authentication success";
@@ -23,9 +24,16 @@ export class LoginComponent implements OnInit {
   checkLogin() {
 
     this.loginservice.authenticate(this.username, this.password).subscribe(
-      data =>{
-        console.log(data);
-        this.invalidLogin = false
+      (data:any) =>{
+           console.log(data)
+          let token = data['token'];
+          sessionStorage.setItem("token",token);
+          data = jwt_decode(token);
+          this.name = data["name"];
+          sessionStorage.setItem("name",this.name);
+
+        this.invalidLogin = false;
+        this.router.navigate([""])
       }
         ,
       error=>{
