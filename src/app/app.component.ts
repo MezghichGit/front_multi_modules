@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ams_mean';
+  title = 'Application REAN pour la gestion des Coutries/Equipes';
 }
