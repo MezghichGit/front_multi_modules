@@ -1,4 +1,4 @@
-import { Component , OnInit } from '@angular/core';
+import { Component , OnInit, Output, EventEmitter  } from '@angular/core';
 import { Router, ActivatedRoute} from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 import jwt_decode from "jwt-decode";
@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   password: any;
   name:any
   invalidLogin = false;
+  @Output() eventToSend = new EventEmitter();
 
   successMessage = "Authentication success";
   errorMessage = "Invalide username or password";
@@ -31,9 +32,10 @@ export class LoginComponent implements OnInit {
           data = jwt_decode(token);
           this.name = data["name"];
           sessionStorage.setItem("name",this.name);
-
+          //this.eventToSend.emit("Bonjour "+this.name);
         this.invalidLogin = false;
         this.router.navigate([""])
+
       }
         ,
       error=>{

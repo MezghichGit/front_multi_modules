@@ -1,6 +1,6 @@
 <h1 align="center">{{title}}</h1>
 
-<div *ngIf="nomUser">Bonjour {{nomUser}}</div>
+
 
 <button class="btn btn-primary" *ngIf="loginService.isUserLoggedIn()" routerLink="/country" style="margin-right:5px;">Countries</button>
 <button class="btn btn-success" *ngIf="loginService.isUserLoggedIn()" routerLink="/equipe" style="margin-right:5px;" >Equipes</button>
@@ -8,5 +8,3 @@
 <button class="btn btn-warning"  *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" style="margin-right:5px;">Logout</button>
 <hr/>
 <router-outlet></router-outlet>
-
-

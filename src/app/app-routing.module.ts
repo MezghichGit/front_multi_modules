@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 
+
 const routes: Routes = [
   {
     path:'login',
@@ -12,6 +13,7 @@ const routes: Routes = [
     path:'logout',
     component:LogoutComponent
   },
+
   {
     path: 'country',
     loadChildren: () => import('./country/country.module').then(m => m.CountryModule)
