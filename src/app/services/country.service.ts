@@ -10,9 +10,9 @@ export class CountryService {
 
   getAllCountries(){
     console.log("Ok");
-    const headers = new HttpHeaders({ Authorization: 'Bearer ' + sessionStorage.getItem('token') });
-    return this.http.get(this.baseUrl,{headers});
-    //return this.http.get(this.baseUrl);
+    //const headers = new HttpHeaders({ Authorization: 'Bearer ' + sessionStorage.getItem('token') });
+    //return this.http.get(this.baseUrl,{headers});
+    return this.http.get(this.baseUrl);
   }
 
   addCountry(country:any){

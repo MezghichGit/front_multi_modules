@@ -1,1 +1,9 @@
-<h3>Add new country</h3>
+<h3 align="center">Add new Country</h3>
+
+<form #countryForm="ngForm" (submit)="handleAddCountry(countryForm)">
+  <div class="form-group">
+      <label >Your county</label>
+      <input name="wording" ngModel class="form-control">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
