@@ -1,1 +1,12 @@
-<h3>List of countries</h3>
+
+<h3 align="center">List of countries</h3>
+<table align="center" border="1" class="table">
+  <tr>
+    <th>ID</th>
+    <th>Label</th>
+  </tr>
+  <tr *ngFor="let country of countries">
+    <td>{{country.id}}</td>
+    <td>{{country.country}}</td>
+  </tr>
+</table>

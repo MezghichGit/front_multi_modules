@@ -18,7 +18,7 @@ export class AuthenticationService {
 
   isUserLoggedIn() {
     let user = sessionStorage.getItem('token')
-    console.log(!(user === null))
+    //console.log(!(user === null))
     return !(user === null)
   }
 

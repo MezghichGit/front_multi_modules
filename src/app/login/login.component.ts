@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
     this.loginservice.authenticate(this.username, this.password).subscribe(
       (data:any) =>{
-           console.log(data)
+          // console.log(data)
           let token = data['token'];
           sessionStorage.setItem("token",token);
           data = jwt_decode(token);
